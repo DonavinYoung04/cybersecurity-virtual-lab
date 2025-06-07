@@ -19,9 +19,13 @@ VM Image Acquisition: Official ISO images for Kali Linux (installer version) and
 Kali Linux VM Creation: A new virtual machine for Kali Linux was configured with 4GB of RAM, 2 CPU cores, and a 30GB dynamically allocated virtual disk. Its network adapter was assigned to the custom NAT Network: CyberLabNet. A standard graphical installation of Kali Linux was then performed.
 Metasploitable 2 VM Preparation: For Metasploitable 2, 1GB of RAM and 1 CPU core were allocated, and the downloaded .vmdk file was attached as the virtual disk. Critically, its network adapter was also configured to the same NAT Network: CyberLabNet to facilitate communication with the Kali VM. The default login credentials (msfadmin/msfadmin) were noted.
 Network Connectivity Verification: Post-setup, basic ping tests were executed between the Kali Linux VM and Metasploitable 2 VM to confirm seamless network communication within the isolated lab environment.
+
 Demonstrated Skills
+
 This hands-on project has provided the opportunity to develop and showcase the following essential cybersecurity and technical skills:
+
 Virtualization Management: Proficiency in deploying, configuring, and managing virtual machines using industry-standard virtualization software (Oracle VM VirtualBox).
+
 Network Configuration & Segmentation: Practical understanding and implementation of basic network topologies, including isolated NAT networks and IP addressing schemes.
 Linux OS Administration: Demonstrated familiarity with command-line operations, file system navigation, and fundamental system management on both Kali Linux (for offensive tasks) and vulnerable Linux targets.
 Vulnerability Assessment Fundamentals: Gaining practical insight into identifying system weaknesses and methods for conducting initial vulnerability discovery.
