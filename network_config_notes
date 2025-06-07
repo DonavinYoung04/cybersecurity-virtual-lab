@@ -1,0 +1,60 @@
+Virtual Lab Network Configuration Details
+This document details the specific network configuration for my cybersecurity virtual lab. Keeping these notes helps me maintain consistency, troubleshoot issues, and quickly reference IP addresses and network settings within my isolated environment.
+
+Virtualization Software Used: Oracle VM VirtualBox
+
+Host Machine Operating System: [Your Host OS, e.g., Windows 10 Pro / macOS Sonoma / Ubuntu 22.04 LTS]
+
+VirtualBox NAT Network Configuration
+My lab's isolated network is set up as follows within VirtualBox:
+
+Network Name: CyberLabNet (This is a custom NAT Network I created).
+Network CIDR: 10.0.2.0/24 (This is VirtualBox's default for a new NAT Network, providing 254 usable IP addresses).
+Supports DHCP: Yes (VirtualBox's built-in DHCP server assigns IP addresses automatically).
+DHCP Server Address: 10.0.2.2 (This is the default gateway for VMs within this NAT Network).
+Network Address: 10.0.2.0
+Broadcast Address: 10.0.2.255
+
+Virtual Machine IP Addresses
+Here are the typical IP addresses obtained by my lab VMs via DHCP on the CyberLabNet. Note: These are examples; actual IPs may vary slightly due to DHCP allocation.
+
+Kali-Attacker VM:
+Network Adapter: Adapter 1
+Attached to: NAT Network (CyberLabNet)
+Assigned IP Address: 10.0.2.4 (Example)
+Subnet Mask: 255.255.255.0
+Default Gateway: 10.0.2.2
+
+Metasploitable2-Target VM:
+Network Adapter: Adapter 1
+Attached to: NAT Network (CyberLabNet)
+Assigned IP Address: 10.0.2.15 (Example)
+Subnet Mask: 255.255.255.0
+Default Gateway: 10.0.2.2
+
+Connectivity Verification Commands
+I always verify network communication after setting up the VMs. Here are the commands I use:
+From Kali-Attacker Terminal:
+To check Kali's assigned IP address:
+ip a
+# OR
+ifconfig
+
+
+To ping the Metasploitable 2 target and confirm connectivity:
+ping 10.0.2.15 # (Replace with your Metasploitable's actual IP)
+
+Expected Output: Successful replies from the target.
+From Metasploitable2-Target Terminal (after logging in: msfadmin/msfadmin):
+To check Metasploitable's assigned IP address:
+ifconfig
+
+
+To ping the Kali-Attacker machine:
+ping 10.0.2.4 # (Replace with your Kali's actual IP)
+
+Expected Output: Successful replies from the target.
+Troubleshooting Notes
+VMs Not Communicating: Ensure both VMs are configured to use the exact same NAT Network (e.g., CyberLabNet) in their VirtualBox network settings.
+DHCP Issues: Verify that the DHCP server for CyberLabNet is enabled in VirtualBox's File > Host Network Manager > NAT Networks tab.
+Virtualization Enabled: Confirm that CPU virtualization features (Intel VT-x / AMD-V) are enabled in your host machine's BIOS/UEFI settings.
